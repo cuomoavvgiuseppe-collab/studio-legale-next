@@ -1,69 +1,272 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Avv. Giuseppe Cuomo — Studio Legale Nocera Inferiore',
+  description:
+    'Studio Legale Cuomo: diritto penale, civile, tributario, del lavoro. Patrocinante in Cassazione. Via G. Matteotti 14, Nocera Inferiore (SA). Tel: +39 081 921 1148.',
+}
+
+const aree = [
+  { titolo: 'Diritto Penale', descrizione: 'Difesa in giudizio, reati tributari, cybercrime, reati societari e d\'impresa.' },
+  { titolo: 'Diritto Civile', descrizione: 'Responsabilità contrattuale ed extracontrattuale, risarcimento danni, diritto di famiglia.' },
+  { titolo: 'Diritto Tributario', descrizione: 'Accertamenti fiscali, contenzioso tributario, pianificazione fiscale.' },
+  { titolo: 'Diritto del Lavoro', descrizione: 'Licenziamenti, controversie lavorative, mobbing, sicurezza sul lavoro.' },
+  { titolo: 'Diritto Previdenziale', descrizione: 'Pensioni, invalidità, contributi previdenziali, controversie INPS/INAIL.' },
+  { titolo: 'Consulenza Preventiva', descrizione: 'Parere scritto sul metodo di lavoro con strumenti AI per libere professioni e PA.' },
+]
+
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* Hero */}
+      <section style={{
+        maxWidth: '960px',
+        margin: '0 auto',
+        padding: '80px 28px 64px',
+      }}>
+        <p
+          className="eyebrow"
+          data-animate
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.7rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            marginBottom: '24px',
+          }}
+        >
+          Nocera Inferiore · Cassazione
+        </p>
+
+        <h1
+          data-animate
+          style={{
+            fontFamily: "'Newsreader', serif",
+            fontSize: 'clamp(2rem, 5vw, 3.2rem)',
+            fontWeight: 500,
+            lineHeight: 1.2,
+            color: 'var(--ink)',
+            marginBottom: '24px',
+            letterSpacing: '-0.01em',
+            textAlign: 'left',
+          }}
+        >
+          Avvocato Giuseppe Cuomo
+          <br />
+          <span style={{ color: 'var(--wine)' }}>Patrocinante in Cassazione</span>
+        </h1>
+
+        <p
+          data-animate
+          style={{
+            fontSize: '1.05rem',
+            color: 'var(--ink-soft)',
+            lineHeight: 1.75,
+            maxWidth: '620px',
+            marginBottom: '40px',
+          }}
+        >
+          Studio Legale specializzato in diritto penale, civile, tributario, del lavoro
+          e previdenziale. Assistenza in ogni grado di giudizio, dalla consulenza
+          preventiva al ricorso in Cassazione.
+        </p>
+
+        <div data-animate style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Link
+            href="/contatti"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'var(--wine)',
+              color: 'var(--white)',
+              padding: '14px 28px',
+              borderRadius: '2px',
+              textDecoration: 'none',
+              fontSize: '0.9rem',
+              fontWeight: 500,
+              letterSpacing: '0.03em',
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Prenota una consulenza
+          </Link>
+          <Link
+            href="/chi-sono"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              border: '1px solid var(--line)',
+              color: 'var(--ink)',
+              padding: '14px 28px',
+              borderRadius: '2px',
+              textDecoration: 'none',
+              fontSize: '0.9rem',
+              letterSpacing: '0.03em',
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            Documentation
-          </a>
+            Chi sono
+          </Link>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Divisore */}
+      <div style={{
+        maxWidth: '960px',
+        margin: '0 auto',
+        padding: '0 28px',
+      }}>
+        <hr style={{ border: 'none', borderTop: '1px solid var(--line)', opacity: 0.5 }} />
+      </div>
+
+      {/* Aree di pratica */}
+      <section style={{
+        maxWidth: '960px',
+        margin: '0 auto',
+        padding: '80px 28px',
+      }}>
+        <p
+          className="eyebrow"
+          data-animate
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.7rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            marginBottom: '12px',
+          }}
+        >
+          Competenze
+        </p>
+        <h2
+          data-animate
+          style={{
+            fontFamily: "'Newsreader', serif",
+            fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+            fontWeight: 500,
+            color: 'var(--ink)',
+            marginBottom: '48px',
+            textAlign: 'left',
+          }}
+        >
+          Aree di pratica
+        </h2>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '24px',
+        }}>
+          {aree.map((area) => (
+            <div
+              key={area.titolo}
+              data-animate
+              className="hover-card"
+              style={{
+                background: 'var(--white)',
+                border: '1px solid var(--line)',
+                borderRadius: '4px',
+                padding: '28px',
+              }}
+            >
+              <h3 style={{
+                fontFamily: "'Newsreader', serif",
+                fontSize: '1.05rem',
+                fontWeight: 600,
+                color: 'var(--ink)',
+                marginBottom: '10px',
+                textAlign: 'left',
+              }}>
+                {area.titolo}
+              </h3>
+              <p style={{
+                fontSize: '0.85rem',
+                color: 'var(--ink-soft)',
+                lineHeight: 1.7,
+                textAlign: 'left',
+              }}>
+                {area.descrizione}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div data-animate style={{ marginTop: '40px' }}>
+          <Link
+            href="/aree-di-pratica"
+            style={{
+              fontSize: '0.85rem',
+              color: 'var(--wine)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--wine)',
+              paddingBottom: '2px',
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
+            Tutte le aree di pratica
+          </Link>
+        </div>
+      </section>
+
+      {/* Banner contatti */}
+      <section style={{
+        background: 'var(--ink)',
+        padding: '64px 28px',
+      }}>
+        <div style={{
+          maxWidth: '960px',
+          margin: '0 auto',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '32px',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div>
+            <h2 style={{
+              fontFamily: "'Newsreader', serif",
+              fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)',
+              fontWeight: 500,
+              color: 'var(--white)',
+              marginBottom: '8px',
+              textAlign: 'left',
+            }}>
+              Serve una consulenza?
+            </h2>
+            <p style={{
+              fontSize: '0.85rem',
+              color: 'rgba(255,253,248,0.55)',
+              textAlign: 'left',
+            }}>
+              Tel: +39 081 921 11 48 · Via G. Matteotti 14, Nocera Inferiore
+            </p>
+          </div>
+          <Link
+            href="/contatti"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              background: 'var(--gold)',
+              color: 'var(--ink)',
+              padding: '14px 28px',
+              borderRadius: '2px',
+              textDecoration: 'none',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+              fontFamily: "'Inter', sans-serif",
+              flexShrink: 0,
+            }}
+          >
+            Contattaci
+          </Link>
+        </div>
+      </section>
+    </>
+  )
 }
