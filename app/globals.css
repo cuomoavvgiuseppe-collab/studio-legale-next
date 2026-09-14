@@ -1,12 +1,13 @@
 /* Reset e variabili gestiti nel layout via style tag inline */
 
-[data-animate] {
+/* Animations — hidden state applied via JS (progressive enhancement) */
+.js-animations [data-animate] {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-[data-animate].animate-in {
+.js-animations [data-animate].animate-in {
   opacity: 1;
   transform: translateY(0);
 }
