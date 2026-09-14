@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import TestimonianzeSection from '@/components/TestimonianzeSection'
+import FAQSection from '@/components/FAQSection'
 
 export const metadata: Metadata = {
   title: 'Avv. Giuseppe Cuomo — Studio Legale Nocera Inferiore',
@@ -212,6 +214,14 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* Testimonianze */}
+      <TestimonianzeSection />
+
+      {/* FAQ */}
+      <div style={{ background: 'var(--paper)' }}>
+        <FAQSection />
+      </div>
 
       {/* Banner contatti */}
       <section style={{
