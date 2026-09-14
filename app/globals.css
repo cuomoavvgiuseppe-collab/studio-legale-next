@@ -1,13 +1,15 @@
 /* Reset e variabili gestiti nel layout via style tag inline */
 
-/* Animations — hidden state applied via JS (progressive enhancement) */
-.js-animations [data-animate] {
-  opacity: 0;
-  transform: translateY(20px);
+/* Scroll animations — content always visible, animate-in adds entrance effect */
+[data-animate] {
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.js-animations [data-animate].animate-in {
-  opacity: 1;
-  transform: translateY(0);
+[data-animate].animate-in {
+  animation: fadeSlideIn 0.55s ease both;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0.4; transform: translateY(12px); }
+  to   { opacity: 1;   transform: translateY(0); }
 }

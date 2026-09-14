@@ -4,9 +4,6 @@ import { useEffect } from 'react'
 
 export default function ScrollAnimator() {
   useEffect(() => {
-    // Mark body so CSS hides [data-animate] elements (progressive enhancement)
-    document.body.classList.add('js-animations')
-
     const targets = document.querySelectorAll<HTMLElement>('[data-animate]')
     if (!targets.length) return
 

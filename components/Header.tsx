@@ -143,8 +143,9 @@ export default function Header() {
         display: 'flex', flexDirection: 'column',
         padding: '96px 32px 48px',
         opacity: menuOpen ? 1 : 0,
+        visibility: menuOpen ? 'visible' : 'hidden',
         pointerEvents: menuOpen ? 'auto' : 'none',
-        transition: 'opacity 0.25s ease',
+        transition: 'opacity 0.25s ease, visibility 0.25s ease',
       }}>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
           {navLinks.map(link => (
