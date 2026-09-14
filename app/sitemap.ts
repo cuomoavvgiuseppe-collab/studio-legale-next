@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { practiceAreas } from '@/lib/practice-areas'
+import { cities } from '@/lib/cities'
 
 const BASE = 'https://www.studiolegalecuomogiuseppe.it'
 
@@ -25,5 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...areaRoutes]
+  const cityRoutes: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${BASE}/avvocato/${city.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
+  return [...staticRoutes, ...areaRoutes, ...cityRoutes]
 }
