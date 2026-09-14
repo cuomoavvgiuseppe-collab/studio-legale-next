@@ -7,21 +7,13 @@ import RispostaGarantitaSection from '@/components/RispostaGarantitaSection'
 import TerritorioServitoSection from '@/components/TerritorioServitoSection'
 import CostiOrientativiSection from '@/components/CostiOrientativiSection'
 import IntakePrequalificazioneSection from '@/components/IntakePrequalificazioneSection'
+import SpecializzazioniSection from '@/components/SpecializzazioniSection'
 
 export const metadata: Metadata = {
   title: 'Avv. Giuseppe Cuomo — Studio Legale Nocera Inferiore',
   description:
     'Studio Legale Cuomo: diritto penale, civile, tributario, del lavoro. Patrocinante in Cassazione. Via G. Matteotti 14, Nocera Inferiore (SA). Tel: +39 081 921 1148.',
 }
-
-const aree = [
-  { titolo: 'Diritto Penale', descrizione: 'Difesa in giudizio, reati tributari, cybercrime, reati societari e d\'impresa.' },
-  { titolo: 'Diritto Civile', descrizione: 'Responsabilità contrattuale ed extracontrattuale, risarcimento danni, diritto di famiglia.' },
-  { titolo: 'Diritto Tributario', descrizione: 'Accertamenti fiscali, contenzioso tributario, pianificazione fiscale.' },
-  { titolo: 'Diritto del Lavoro', descrizione: 'Licenziamenti, controversie lavorative, mobbing, sicurezza sul lavoro.' },
-  { titolo: 'Diritto Previdenziale', descrizione: 'Pensioni, invalidità, contributi previdenziali, controversie INPS/INAIL.' },
-  { titolo: 'Consulenza Preventiva', descrizione: 'Parere scritto sul metodo di lavoro con strumenti AI per libere professioni e PA.' },
-]
 
 export default function HomePage() {
   return (
@@ -130,95 +122,8 @@ export default function HomePage() {
         <hr style={{ border: 'none', borderTop: '1px solid var(--line)', opacity: 0.5 }} />
       </div>
 
-      {/* Aree di pratica */}
-      <section style={{
-        maxWidth: '960px',
-        margin: '0 auto',
-        padding: '80px 28px',
-      }}>
-        <p
-          className="eyebrow"
-          data-animate
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '0.7rem',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--gold)',
-            marginBottom: '12px',
-          }}
-        >
-          Competenze
-        </p>
-        <h2
-          data-animate
-          style={{
-            fontFamily: "'Newsreader', serif",
-            fontSize: 'clamp(1.4rem, 3vw, 2rem)',
-            fontWeight: 500,
-            color: 'var(--ink)',
-            marginBottom: '48px',
-            textAlign: 'left',
-          }}
-        >
-          Aree di pratica
-        </h2>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '24px',
-        }}>
-          {aree.map((area) => (
-            <div
-              key={area.titolo}
-              data-animate
-              className="hover-card"
-              style={{
-                background: 'var(--white)',
-                border: '1px solid var(--line)',
-                borderRadius: '4px',
-                padding: '28px',
-              }}
-            >
-              <h3 style={{
-                fontFamily: "'Newsreader', serif",
-                fontSize: '1.05rem',
-                fontWeight: 600,
-                color: 'var(--ink)',
-                marginBottom: '10px',
-                textAlign: 'left',
-              }}>
-                {area.titolo}
-              </h3>
-              <p style={{
-                fontSize: '0.85rem',
-                color: 'var(--ink-soft)',
-                lineHeight: 1.7,
-                textAlign: 'left',
-              }}>
-                {area.descrizione}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div data-animate style={{ marginTop: '40px' }}>
-          <Link
-            href="/aree-di-pratica"
-            style={{
-              fontSize: '0.85rem',
-              color: 'var(--wine)',
-              textDecoration: 'none',
-              borderBottom: '1px solid var(--wine)',
-              paddingBottom: '2px',
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            Tutte le aree di pratica
-          </Link>
-        </div>
-      </section>
+      {/* Specializzazioni — aree con key points */}
+      <SpecializzazioniSection />
 
       {/* Stats e credenziali */}
       <StatsBioSection />
