@@ -3,6 +3,9 @@ import Link from 'next/link'
 import TestimonianzeSection from '@/components/TestimonianzeSection'
 import FAQSection from '@/components/FAQSection'
 import StatsBioSection from '@/components/StatsBioSection'
+import RispostaGarantitaSection from '@/components/RispostaGarantitaSection'
+import TerritorioServitoSection from '@/components/TerritorioServitoSection'
+import CostiOrientativiSection from '@/components/CostiOrientativiSection'
 
 export const metadata: Metadata = {
   title: 'Avv. Giuseppe Cuomo — Studio Legale Nocera Inferiore',
@@ -218,6 +221,15 @@ export default function HomePage() {
 
       {/* Stats e credenziali */}
       <StatsBioSection />
+
+      {/* Territorio servito */}
+      <TerritorioServitoSection />
+
+      {/* Costi orientativi */}
+      <CostiOrientativiSection />
+
+      {/* Risposta garantita */}
+      <RispostaGarantitaSection />
 
       {/* Testimonianze */}
       <TestimonianzeSection />
