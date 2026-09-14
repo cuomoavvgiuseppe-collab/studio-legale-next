@@ -8,6 +8,7 @@ import TerritorioServitoSection from '@/components/TerritorioServitoSection'
 import CostiOrientativiSection from '@/components/CostiOrientativiSection'
 import IntakePrequalificazioneSection from '@/components/IntakePrequalificazioneSection'
 import SpecializzazioniSection from '@/components/SpecializzazioniSection'
+import CaseResultsSection from '@/components/CaseResultsSection'
 
 export const metadata: Metadata = {
   title: 'Avv. Giuseppe Cuomo — Studio Legale Nocera Inferiore',
@@ -136,6 +137,9 @@ export default function HomePage() {
 
       {/* Risposta garantita */}
       <RispostaGarantitaSection />
+
+      {/* Casi risolti */}
+      <CaseResultsSection />
 
       {/* Intake pre-qualificazione */}
       <IntakePrequalificazioneSection />
