@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { biographyConfig } from '@/lib/biography'
 import { contactInfo } from '@/lib/contact'
+import BadgeCertificazioniSection from '@/components/BadgeCertificazioniSection'
 
 export const metadata: Metadata = {
   title: 'Chi sono — Avv. Giuseppe Cuomo',
@@ -226,6 +227,8 @@ export default function ChiSonoPage() {
           </div>
         </div>
       </section>
+
+      <BadgeCertificazioniSection />
 
       {/* CTA */}
       <section style={{ maxWidth: '960px', margin: '0 auto', padding: '80px 28px' }}>
