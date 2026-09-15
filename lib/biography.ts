@@ -3,7 +3,7 @@ export const biographyConfig = {
   sectionTitle: "L'Avvocato Giuseppe Cuomo",
   subtitle:
     'Avvocato Cassazionista, Legal Technologist e AI Specialist — oltre 25 anni al servizio dei diritti',
-  photo: '/avvocato-cuomo-placeholder.svg',
+  photo: '/avvocato-cuomo-real.webp',
   photoAlt:
     'Avv. Giuseppe Cuomo — Avvocato Cassazionista e Legal Technologist a Nocera Inferiore (SA)',
   years: 25,

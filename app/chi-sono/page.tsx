@@ -101,7 +101,6 @@ export default function ChiSonoPage() {
                 src={biographyConfig.photo}
                 alt={biographyConfig.photoAlt}
                 fill
-                unoptimized
                 style={{ objectFit: 'cover', objectPosition: 'top center' }}
                 sizes="280px"
               />
