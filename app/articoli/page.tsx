@@ -12,9 +12,9 @@ export const revalidate = 300 // ISR ogni 5 minuti
 async function getArticoli() {
   const { data, error } = await supabase
     .from('articoli')
-    .select('id, titolo, slug, categoria, created_at, excerpt')
-    .eq('stato', 'published')
-    .order('created_at', { ascending: false })
+    .select('id, title, category, publish_date, created_at, excerpt')
+    .eq('status', 'published')
+    .order('publish_date', { ascending: false })
     .limit(50)
 
   if (error) {
@@ -37,7 +37,7 @@ const CATEGORIA_LABELS: Record<string, string> = {
 export default async function ArticoliPage() {
   const articoli = await getArticoli()
 
-  const categorie = Array.from(new Set(articoli.map((a) => a.categoria))).filter(Boolean)
+  const categorie = Array.from(new Set(articoli.map((a) => a.category))).filter(Boolean)
 
   return (
     <>
@@ -63,7 +63,7 @@ export default async function ArticoliPage() {
         ) : (
           <>
             {categorie.map((cat) => {
-              const items = articoli.filter((a) => a.categoria === cat)
+              const items = articoli.filter((a) => a.category === cat)
               if (!items.length) return null
               return (
                 <div key={cat} style={{ marginBottom: '56px' }}>
@@ -71,16 +71,16 @@ export default async function ArticoliPage() {
                     {CATEGORIA_LABELS[cat] ?? cat}
                   </h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                    {items.map((art, i) => (
+                    {items.map((art) => (
                       <Link
                         key={art.id}
-                        href={art.slug ? `/articoli/${art.slug}` : `/articoli/${art.id}`}
+                        href={`/articoli/${art.id}`}
                         style={{ textDecoration: 'none' }}
                       >
                         <div className="hover-card" style={{ padding: '20px 0', borderBottom: '1px solid var(--ink-faint)', display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'start' }}>
                           <div>
                             <p style={{ fontFamily: "'Newsreader', serif", fontSize: '1rem', fontWeight: 500, color: 'var(--ink)', marginBottom: '4px', textAlign: 'left' }}>
-                              {art.titolo}
+                              {art.title}
                             </p>
                             {art.excerpt && (
                               <p style={{ fontSize: '0.82rem', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left' }}>
@@ -89,7 +89,7 @@ export default async function ArticoliPage() {
                             )}
                           </div>
                           <p style={{ fontSize: '0.72rem', color: 'var(--ink-soft)', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap', marginTop: '2px' }}>
-                            {new Date(art.created_at).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}
+                            {new Date(art.publish_date ?? art.created_at).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}
                           </p>
                         </div>
                       </Link>

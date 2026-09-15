@@ -16,12 +16,17 @@ export function createServiceClient() {
 
 export interface ArticoloRow {
   id: number
-  titolo: string
+  title: string
   slug: string | null
-  contenuto: string
-  categoria: string
-  stato: 'published' | 'draft'
+  content: string
+  category: string
+  status: 'published' | 'draft'
+  publish_date: string
   created_at: string
   excerpt?: string | null
   fonte?: string | null
+  url_fonte?: string | null
+  author?: string | null
+  image?: string | null
+  tags?: string[] | null
 }

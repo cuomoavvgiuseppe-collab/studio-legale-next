@@ -8,13 +8,13 @@ export async function GET(req: NextRequest) {
 
   let query = supabase
     .from('articoli')
-    .select('id, titolo, slug, categoria, stato, created_at, excerpt')
-    .eq('stato', 'published')
-    .order('created_at', { ascending: false })
+    .select('id, title, category, status, publish_date, created_at, excerpt')
+    .eq('status', 'published')
+    .order('publish_date', { ascending: false })
     .limit(limit)
 
   if (categoria) {
-    query = query.eq('categoria', categoria)
+    query = query.eq('category', categoria)
   }
 
   const { data, error } = await query

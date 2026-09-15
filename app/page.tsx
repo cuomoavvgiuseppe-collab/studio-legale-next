@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { JsonLd } from '@/components/JsonLd'
 import TestimonianzeSection from '@/components/TestimonianzeSection'
 import FAQSection from '@/components/FAQSection'
 import StatsBioSection from '@/components/StatsBioSection'
@@ -16,9 +17,46 @@ export const metadata: Metadata = {
     'Studio Legale Cuomo: diritto penale, civile, tributario, del lavoro. Patrocinante in Cassazione. Via G. Matteotti 14, Nocera Inferiore (SA). Tel: +39 081 921 1148.',
 }
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Studio Legale Cuomo — Avv. Giuseppe Cuomo',
+  url: 'https://www.studiolegalecuomogiuseppe.it',
+  telephone: '+390819211148',
+  email: 'info@studiolegalecuomogiuseppe.it',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Via G. Matteotti, 14',
+    addressLocality: 'Nocera Inferiore',
+    addressRegion: 'SA',
+    postalCode: '84014',
+    addressCountry: 'IT',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 40.7449,
+    longitude: 14.6416,
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '13:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '15:00', closes: '19:00' },
+  ],
+  founder: {
+    '@type': 'Person',
+    name: 'Giuseppe Cuomo',
+    jobTitle: 'Avvocato Patrocinante in Cassazione',
+  },
+  areaServed: ['Nocera Inferiore', 'Salerno', 'Napoli', 'Campania'],
+  knowsAbout: ['Diritto Penale', 'Diritto Civile', 'Diritto Tributario', 'Diritto del Lavoro', 'Diritto Previdenziale'],
+  sameAs: [
+    'https://www.facebook.com/studiolegalecuomogiuseppe',
+  ],
+}
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd id="schema-studio" data={localBusinessSchema} />
       {/* Hero */}
       <section style={{
         maxWidth: '960px',
