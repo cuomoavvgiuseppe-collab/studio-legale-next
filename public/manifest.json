@@ -1,0 +1,24 @@
+{
+  "name": "Studio Legale Cuomo — Avv. Giuseppe Cuomo",
+  "short_name": "Studio Cuomo",
+  "description": "Avvocato Giuseppe Cuomo, Patrocinante in Cassazione. Diritto penale, civile, tributario, del lavoro e previdenziale. Nocera Inferiore (SA).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F3EC",
+  "theme_color": "#6B1E22",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
